@@ -33,7 +33,7 @@ module.exports = (content) => html`<!DOCTYPE html>
       </div>
       <hr/>
       <div id="footer" class="container text-muted">
-        HELLO DB by Clark Chen
+        hello db by Clark Chen
       </div>
     </body>
   </html>`;

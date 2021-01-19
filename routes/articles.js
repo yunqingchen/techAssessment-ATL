@@ -27,7 +27,7 @@ router.post("/", async (req, res, next) => {
 
     // alerts if canonical-url is blank or already in use
     if (!req.body['canonical-url']) res.send('url cannot be blank');
-    else if (articles.length > 1) res.send('url is already in use')
+    else if (articles.length > 1) res.send('url is already in use');
 
     let [ article, articleCreated ] = await Article.findOrCreate({
       where: {
@@ -37,12 +37,12 @@ router.post("/", async (req, res, next) => {
     });
 
     article.canonical_url = req.body['canonical-url']
-    article.title = req.body.title
-    article.slug = req.body['article-slug'];
-    article.dek = req.body.dek;
-    article.published_date = req.body['published-date']
-    article.word_count = req.body['word-count'];
-    article.tags = req.body.tags
+    if (article.title) article.title = req.body.title
+    if (article.slug) article.slug = req.body['article-slug'];
+    if (article.dek) article.dek = req.body.dek;
+    if (article.published_date) article.published_date = req.body['published-date']
+    if (article.word_count) article.word_count = req.body['word-count'];
+    if (article.tags) article.tags = req.body.tags
 
     article = await article.save();
 
@@ -72,7 +72,7 @@ router.put("/:id", async (req, res, next) => {
 
     // alerts if canonical-url is blank or already in use
     if (!req.body['canonical-url']) res.send('url cannot be blank');
-    else if (articles.length > 1) res.send('url is already in use');
+    else if (articles.length >= 1) res.send('url is already in use');
 
     let article = await Article.findOne({
       where: {
