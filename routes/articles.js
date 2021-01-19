@@ -26,7 +26,7 @@ router.post("/", async (req, res, next) => {
     console.log('articles>>>>>', articles);
 
     // alerts if canonical-url is blank or already in use
-    if (!req.body['canonical-url']) res.send('url cannot be blank');
+    if (!req.body['canonical-url'] || !req.body.id) res.send('article uuid or url cannot be blank');
     else if (articles.length > 1) res.send('url is already in use');
 
     let [ article, articleCreated ] = await Article.findOrCreate({
@@ -36,7 +36,7 @@ router.post("/", async (req, res, next) => {
       }
     });
 
-    article.canonical_url = req.body['canonical-url']
+    // article.canonical_url = req.body['canonical-url']
     if (article.title) article.title = req.body.title
     if (article.slug) article.slug = req.body['article-slug'];
     if (article.dek) article.dek = req.body.dek;

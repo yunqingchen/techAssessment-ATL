@@ -28,7 +28,7 @@ module.exports = (article, authors) => layout(html`
     <div class="form-group">
       <label for="title" class="col-sm-2 control-label">title</label>
       <div class="col-sm-10">
-      <textarea name="title">${article.title}</textarea>
+      <textarea name="title">${article.title ? article.title : ''} </textarea>
       </div>
     </div>
 
@@ -48,7 +48,7 @@ module.exports = (article, authors) => layout(html`
     <div class="form-group">
       <label for="article-slug" class="col-sm-2 control-label">slug</label>
       <div class="col-sm-10">
-      <textarea name="article-slug">${article.slug}</textarea>
+      <textarea name="article-slug">${article.slug ? article.slug : ''}</textarea>
       </div>
     </div>
 
@@ -57,7 +57,7 @@ module.exports = (article, authors) => layout(html`
     <div class="form-group">
       <label for="dek" class="col-sm-2 control-label">dek</label>
       <div class="col-sm-10">
-        <textarea name="dek">${article.dek}</textarea>
+        <textarea name="dek">${article.dek ? article.dek : ''}</textarea>
       </div>
     </div>
 
@@ -66,7 +66,7 @@ module.exports = (article, authors) => layout(html`
     <div class="form-group">
       <label for="published-date" class="col-sm-2 control-label">date published</label>
       <div class="col-sm-10">
-      <textarea name="published-date">${article.published_date}</textarea>
+      <textarea name="published-date">${article.published_date ? article.published_date : ''}</textarea>
 
       </div>
     </div>
@@ -76,7 +76,7 @@ module.exports = (article, authors) => layout(html`
     <div class="form-group">
       <label for="word-count" class="col-sm-2 control-label">word count</label>
       <div class="col-sm-10">
-        <input name="word-count" type="text" class="form-control" value=${article.word_count}> </input>
+        <input name="word-count" type="text" class="form-control" value=${article.word_count ? article.word_count : ''}> </input>
       </div>
     </div>
 
@@ -85,7 +85,7 @@ module.exports = (article, authors) => layout(html`
     <div class="form-group">
       <label for="tags" class="col-sm-2 control-label">tags</label>
       <div class="col-sm-10">
-        <input name="tags" type="text" class="form-control" value=${article.tags}> </input>
+        <input name="tags" type="text" class="form-control" value=${article.tags ? article.tags : ''}> </input>
       </div>
     </div>
 
