@@ -19,7 +19,7 @@ module.exports = (article, authors) => layout(html`
       <label for="canonical-url" class="col-sm-2 control-label">canonical url</label>
       <div class="col-sm-10">
       <span class="asterisk_input">  </span>
-        <input name="canonical-url" type="text" class="form-control" value=${article.canonical_url}> </input>
+      <textarea name="title">${article.canonical_url} </textarea>
       </div>
     </div>
 
