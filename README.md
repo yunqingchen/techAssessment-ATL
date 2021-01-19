@@ -3,7 +3,9 @@
 ### To run
 
 `npm install`
+
 `npm run seed`
+
 `npm start`
 
 I used Sequelize, PG, Postman, Postico to build the backend.
