@@ -4,6 +4,8 @@
 
 `npm install`
 
+`createdb clarksapp`
+
 `npm run seed`
 
 `npm start`
